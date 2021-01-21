@@ -10,17 +10,17 @@
   top: 0;
   left: 0;
   z-index: 2;
-  cursor: pointer;
   width: 50px;
   height: 50px;
   opacity: 0;
+  cursor: pointer;
 }
 
 .menu-wrap .hamburger {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1;
   width: 60px;
   height: 60px;
   padding: 1rem;
@@ -40,6 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.4s ease;
 }
 
 /* Hamburger Lines - Top & Bottom */
@@ -54,6 +55,24 @@
   background: inherit;
 }
 
+/* MOves Line Down */
 .menu-wrap .hamburger > div::after {
   top: 10px;
+}
+
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div::before, 
+.menu-wrap .toggler:checked + .hamburger > div::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate on Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
 }
